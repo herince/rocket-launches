@@ -54,6 +54,8 @@ fn propagate_bullet_trajectory(max_steps: i32) {
         ay.push(calculate_y_acc(drag, ANGLE_RAD, MASS));
 
         println!("{} {}", x[i], y[i]);
+
+        // TODO: Plot the data instead of printing it
     }
 
 }
