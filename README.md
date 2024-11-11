@@ -1,8 +1,14 @@
+# Model
+
 Work for the course "Mechanics of a rocket launch" led by assistant prof. Stoil Ivanov, PhD.
 
 The original exercises are done and submitted in Python. This project is more of a fun way for me to explore Rust.
 
-The modeling of the simulated environment is from the masters thesis of M.Eng. Viktoriya Todorova - "Изследване на възможността за изстрелване на космически ракети от територията на България" (Exploring the possibility for launching space rockets from Bulgaria).
+The modeling of the simulated environment is from the masters thesis of M.Eng. Viktoriya Todorova - "Изследване на възможността за изстрелване на космически ракети от територията на България" (Exploring the possibility for launching space rockets from Bulgaria). [https://github.com/viikit/RocketModel](https://github.com/viikit/RocketModel)
+
+# Visualization
+
+Visualization of the simulation results is done using [WorldWind](https://github.com/NASAWorldWind/WebWorldWind) by NASA.
 
 ---
 
