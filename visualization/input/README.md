@@ -1,0 +1,1 @@
+Output files from the simulation Python script for testing the visualization
