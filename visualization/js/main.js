@@ -8,6 +8,12 @@ function setupWorldWindow() {
     worldWindow.addLayer(starFieldLayer);
     worldWindow.addLayer(atmosphereLayer);
 
+    // Adjust the Navigator to place Sofia, Bulgaria in the center of the
+    // WorldWindow
+    worldWindow.navigator.lookAtLocation.latitude = 42.7339;
+    worldWindow.navigator.lookAtLocation.longitude = 25.4858;
+    worldWindow.navigator.range = 8e6; // 8 million meters above the ground
+
     return worldWindow;
 }
 
@@ -37,7 +43,6 @@ function addLaunchLocationLayer(worldWindow) {
 function addRocketPathPoints(worldWindow, rocketPathPoints) {
     let pathPositions = [];
     rocketPathPoints.forEach((pos) => {
-        console.log(pos);
         pathPositions.push(new WorldWind.Position(pos[0], pos[1], pos[2]));
     });
 
@@ -51,15 +56,9 @@ function addRocketPathPoints(worldWindow, rocketPathPoints) {
     // Create and assign the path's attributes
     let pathAttributes = new WorldWind.ShapeAttributes(null);
     pathAttributes.outlineColor = WorldWind.Color.RED;
-    pathAttributes.interiorColor = new WorldWind.Color(0, 0, 0, 0);
+    pathAttributes.interiorColor = WorldWind.Color.TRANSPARENT;
     pathAttributes.drawVerticals = false;
     path.attributes = pathAttributes;
-
-    // Create and assign the path's highlight attributes
-    let highlightAttributes = new WorldWind.ShapeAttributes(pathAttributes);
-    highlightAttributes.outlineColor = WorldWind.Color.RED;
-    highlightAttributes.interiorColor = new WorldWind.Color(1, 1, 1, 0.5);
-    path.highlightAttributes = highlightAttributes;
 
     // Add the path to a layer and the layer to the WorldWindow's layer list
     let pathsLayer = new WorldWind.RenderableLayer();
@@ -76,7 +75,7 @@ function addRocketPathLayer(worldWindow) {
     readValuesFromCSV('http://localhost:8000/visualization/input/rocket-path-geodetic.csv', addRocketPathPoints, worldWindow);
 }
 
-function runSimulation(worldWindow) {
+function runAnimation(worldWindow) {
     // Set a date property for all layers to the current date and time.
     // This enables the Atmosphere layer to show a night side (and dusk/dawn effects in Earth's terminator).
     // The StarField layer positions its stars according to this date.
@@ -91,7 +90,7 @@ function runSimulation(worldWindow) {
     // Begin the simulation at the current time as provided by the browser
     let startTimeMillis = Date.now();
 
-    function advanceSimulation() {
+    function advanceAnimation() {
         // Compute the number of simulated days (or fractions of a day) since the simulation began
         let elapsedTimeMillis = Date.now() - startTimeMillis;
         let simulatedDays = elapsedTimeMillis / simulatedMillisPerDay;
@@ -107,17 +106,17 @@ function runSimulation(worldWindow) {
         });
         worldWindow.redraw(); // Update the WorldWindow scene
 
-        requestAnimationFrame(advanceSimulation);
+        requestAnimationFrame(advanceAnimation);
     }
 
     // Animate the starry sky as well as the globe's day/night cycle
-    requestAnimationFrame(advanceSimulation);
+    requestAnimationFrame(advanceAnimation);
 }
 
 function main() {
     let worldWindow = setupWorldWindow();
     addRocketPathLayer(worldWindow);
-    runSimulation(worldWindow);
+    runAnimation(worldWindow);
     
     addLaunchLocationLayer(worldWindow);
 
