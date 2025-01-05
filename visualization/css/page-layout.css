@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#simulation {
+    width: 960px;
+    height: 540px;
+    display: flex;
+    flex-direction: row;
+}
+canvas { 
+    background-color: black;
+    display: block;
+    border: 1px solid gray; 
+}
