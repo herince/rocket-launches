@@ -72,7 +72,7 @@ function addRocketPathPoints(worldWindow, rocketPathPoints) {
 
 function addRocketPathLayer(worldWindow) {
     // Read from file and add position points
-    readValuesFromCSV('http://localhost:8000/visualization/input/rocket-path-geodetic.csv', addRocketPathPoints, worldWindow);
+    readValuesFromCSV('input/rocket-path-geodetic.csv', addRocketPathPoints, worldWindow);
 }
 
 function runAnimation(worldWindow) {
