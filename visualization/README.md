@@ -18,10 +18,10 @@ A 3D visualization tool to display rocket launch trajectories using [NASA WorldW
 1. Clone the repository:
    ```bash
    git clone git@github.com:herince/rocket-launches.git
-   cd rocket-launches/visualization
    ```
 
 2. Prepare your trajectory data:
+   - Open the folder `rocket-launches/visualization`.
    - Create a `.csv` file with trajectory points in the format:
      ```
      timestamp,latitude,longitude,altitude
@@ -49,7 +49,7 @@ A 3D visualization tool to display rocket launch trajectories using [NASA WorldW
 ```
 ├── css/                    # CSS files to style the page
 ├── input/                  # Configuration files (e.g., rocket-path-geodetic.csv)
-├── js/                     # JavaScript source code for
+└── js/                     # JavaScript source code for
     ├── main.js              # The file that creates the WorldWind window and defines the visualization update function
     └── file-handling.js     # Functions that handle loading and parsing config files
 ├── README.md               # Project documentation
