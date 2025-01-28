@@ -15,9 +15,9 @@ A 3D visualization tool to display rocket launch trajectories using [NASA WorldW
 1. **Python**: Ensure Python 3.x is installed on your system. Download from [python.org](https://www.python.org/).
 
 ## Installation
-1. Clone the repository:
+1. [Clone the repository](https://www.wikihow.com/Clone-a-Repository-on-Github):
    ```bash
-   git clone git@github.com:herince/rocket-launches.git
+   git clone https://github.com/herince/rocket-launches.git
    ```
 
 2. Prepare your trajectory data:
@@ -33,13 +33,13 @@ A 3D visualization tool to display rocket launch trajectories using [NASA WorldW
     To view the visualization and load the trajectory `.csv` file, you need to host the project locally using Python's simple HTTP server. To do that - open a terminal where you have Python 3 accessible and run:
 
     ```
-    python -m http.server
+    py -m http.server
     ```
 
     The server listens to port 8000. To use a different port, provide an extra argument to the command
 
     ```
-    python -m http.server 8080
+    py -m http.server 8080
     ```
 
 4. Open your browser and navigate to [http://localhost:8000](http://localhost:8000)
