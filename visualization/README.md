@@ -12,7 +12,7 @@ A 3D visualization tool to display rocket launch trajectories using [NASA WorldW
   ```
 
 ## Prerequisites
-1. **Python**: Ensure Python 3.x is installed on your system. Download from [python.org](https://www.python.org/).
+1. **Python**: Ensure Python 3.x is installed on your system. Download from [python.org](https://www.python.org/). Depending on how you install Python - if you are working on Windows, you might need to first [add the path to the Python executable](https://www.geeksforgeeks.org/how-to-add-python-to-windows-path/).
 
 ## Installation
 1. [Clone the repository](https://www.wikihow.com/Clone-a-Repository-on-Github):
